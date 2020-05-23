@@ -1,13 +1,4 @@
 <?php
-/**
- ***********************************************
- * File Explorer
- * @author WebCDN (https://github.com/webcdn)
- * 
- * @link https://github.com/webcdn/File-Explorer
- * @license MIT
- ***********************************************
-**/
 session_start();
 setlocale(LC_ALL, 'en_US.UTF-8');
 error_reporting(-1);
@@ -20,7 +11,7 @@ $phpVer = phpversion();
 if( file_exists(_CONFIG) ){
 	@chmod(_CONFIG, 0644);
 	$config = json_decode( getData(_CONFIG) );
-	$max_upload_size = min( inBytes( ini_get('post_max_size') ), inBytes( ini_get('upload_max_filesize') ) );
+	$max_upload_size = "1000 M";
 
 	$config->go_up       = (bool) $config->go_up;
 	$config->show_hidden = (bool) $config->show_hidden;
