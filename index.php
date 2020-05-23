@@ -11,7 +11,7 @@ $phpVer = phpversion();
 if( file_exists(_CONFIG) ){
 	@chmod(_CONFIG, 0644);
 	$config = json_decode( getData(_CONFIG) );
-	$max_upload_size = "1000000000000000000";
+	$max_upload_size = min( inBytes( ini_get('post_max_size') ), inBytes( ini_get('upload_max_filesize') ) );
 
 	$config->go_up       = (bool) $config->go_up;
 	$config->show_hidden = (bool) $config->show_hidden;
